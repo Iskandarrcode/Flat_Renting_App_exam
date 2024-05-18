@@ -1,3 +1,4 @@
+import 'package:flut_renting_app/atboards/screens/home_screen/home_screen.dart';
 import 'package:flut_renting_app/atboards/screens/log_in_screen/login_screen.dart';
 import 'package:flut_renting_app/atboards/screens/onboardings/onboarding1.dart';
 import 'package:flut_renting_app/atboards/screens/sign_up_screen/signup_screen.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       builder: (context, child) {
         return const MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: SignupScreen(),
+          home: Onboarding1Screen(),
         );
       },
     );

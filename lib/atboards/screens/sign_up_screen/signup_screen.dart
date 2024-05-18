@@ -1,3 +1,4 @@
+import 'package:flut_renting_app/atboards/screens/home_screen/home_screen.dart';
 import 'package:flut_renting_app/atboards/screens/onboardings/onboarding1.dart';
 import 'package:flut_renting_app/atboards/widgets/login_widgets/button2.dart';
 import 'package:flut_renting_app/atboards/widgets/login_widgets/text_fields.dart';
@@ -128,7 +129,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       setState(() {
                         Navigator.push(context, MaterialPageRoute(
                           builder: (context) {
-                            return Placeholder();
+                            return const HomeScreen();
                           },
                         ));
                       });
