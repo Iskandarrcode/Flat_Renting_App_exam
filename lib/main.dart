@@ -1,3 +1,4 @@
+import 'package:flut_renting_app/atboards/screens/onboardings/onboarding1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -14,14 +15,9 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       builder: (context, child) {
-        return MaterialApp(
-          home: Scaffold(
-            body: Container(
-              width: 200,
-              height: 200,
-              child: Image.asset("images/onboarding_images/1.jpg"),
-            ),
-          ),
+        return const MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: Onboarding1Screen(),
         );
       },
     );
