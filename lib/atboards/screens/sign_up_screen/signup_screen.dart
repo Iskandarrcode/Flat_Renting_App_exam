@@ -1,4 +1,4 @@
-import 'package:flut_renting_app/atboards/screens/home_screen/home_screen.dart';
+import 'package:flut_renting_app/atboards/screens/log_in_screen/login_screen.dart';
 import 'package:flut_renting_app/atboards/screens/onboardings/onboarding1.dart';
 import 'package:flut_renting_app/atboards/widgets/login_widgets/button2.dart';
 import 'package:flut_renting_app/atboards/widgets/login_widgets/text_fields.dart';
@@ -38,7 +38,7 @@ class _SignupScreenState extends State<SignupScreen> {
       appBar: AppBar(
         leading: ZoomTapAnimation(
           onTap: () {
-            Navigator.pushReplacement(context, MaterialPageRoute(
+            Navigator.push(context, MaterialPageRoute(
               builder: (context) {
                 return const Onboarding1Screen();
               },
@@ -129,7 +129,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       setState(() {
                         Navigator.push(context, MaterialPageRoute(
                           builder: (context) {
-                            return const HomeScreen();
+                            return const LoginScreen();
                           },
                         ));
                       });

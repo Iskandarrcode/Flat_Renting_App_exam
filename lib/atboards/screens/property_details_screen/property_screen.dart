@@ -1,3 +1,5 @@
+import 'package:flut_renting_app/atboards/screens/checkout_screen/checkout_screen.dart';
+import 'package:flut_renting_app/atboards/screens/home_screen/home_screen.dart';
 import 'package:flut_renting_app/atboards/widgets/property_wi/location.dart';
 import 'package:flut_renting_app/atboards/widgets/property_wi/user_widet.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +40,16 @@ class _PropertyScreenState extends State<PropertyScreen> {
                       child: Row(
                         children: [
                           ZoomTapAnimation(
+                            onTap: () {
+                              setState(() {
+                                Navigator.pushReplacement(context,
+                                    MaterialPageRoute(
+                                  builder: (context) {
+                                    return const HomeScreen();
+                                  },
+                                ));
+                              });
+                            },
                             child: Container(
                               width: 40.w,
                               height: 42.h,
@@ -595,7 +607,7 @@ This apartment equipped with Washing Machine, Electric Stove, Microwave, Refrige
                           setState(() {
                             Navigator.push(context, MaterialPageRoute(
                               builder: (context) {
-                                return const Placeholder();
+                                return const CheckoutScreen();
                               },
                             ));
                           });

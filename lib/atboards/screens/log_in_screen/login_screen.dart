@@ -1,5 +1,6 @@
 import 'package:flut_renting_app/atboards/screens/home_screen/home_screen.dart';
 import 'package:flut_renting_app/atboards/screens/onboardings/onboarding1.dart';
+import 'package:flut_renting_app/atboards/screens/sign_up_screen/signup_screen.dart';
 import 'package:flut_renting_app/atboards/widgets/login_widgets/button2.dart';
 import 'package:flut_renting_app/atboards/widgets/login_widgets/text_fields.dart';
 import 'package:flut_renting_app/atboards/widgets/onboarding_widgets/button_widget.dart';
@@ -7,8 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
-
-List<Map<String, dynamic>> dataBase = [];
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -94,6 +93,20 @@ class _LoginScreenState extends State<LoginScreen> {
               Gap(28.h),
               ZoomTapAnimation(
                 onTap: () {
+                  if (!emailController.text.contains("@")) {
+                    setState(() {
+                      errorMessageEmail = "Emailni to'g'ri kiriting!";
+                    });
+                  }
+                  if (passwordController.text.length < 8) {
+                    setState(() {
+                      errorMessagePassword = "Passwordni to'g'ri kiriting!";
+                    });
+                  } else {
+                    errorMessageEmail = "";
+                    errorMessagePassword = "";
+                  }
+
                   if (emailController.text.isEmpty) {
                     setState(() {
                       errorMessageEmail = "Iltimos Emailni kiriting!";
@@ -106,37 +119,26 @@ class _LoginScreenState extends State<LoginScreen> {
                   }
 
                   if (emailController.text.contains("@") &&
-                      emailController.text.length > 10 &&
-                      passwordController.text.length > 8) {
+                      emailController.text.length > 6 &&
+                      passwordController.text.length > 6) {
                     if (errorMessageEmail.isEmpty &&
                         errorMessagePassword.isEmpty) {
-                      dataBase.add({
-                        "email": emailController.text,
-                        "password": passwordController.text
-                      });
-                      setState(() {
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) {
-                            return const HomeScreen();
-                          },
-                        ));
-                      });
+                      for (int i = 0; i < dataBase.length; i++) {
+                        if (dataBase[i]["email"] == emailController.text &&
+                            dataBase[i]["password"] ==
+                                passwordController.text) {
+                          setState(() {
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context) {
+                                return const HomeScreen();
+                              },
+                            ));
+                          });
+                        }
+                      }
+                      errorMessagePassword = "Bunday Foydalanuvchi mavjud emas";
+                      setState(() {});
                     }
-                  }
-
-                  if (!emailController.text.contains("@")) {
-                    setState(() {
-                      errorMessageEmail = "Emailni to'g'ri kiriting!";
-                    });
-                  }
-                  if (passwordController.text.length < 8) {
-                    setState(() {
-                      errorMessagePassword =
-                          "Paro'l 8 ta belgidan ko'p bo'lishi shart";
-                    });
-                  } else {
-                    errorMessageEmail = "";
-                    errorMessagePassword = "";
                   }
                 },
                 child: const Button1(
