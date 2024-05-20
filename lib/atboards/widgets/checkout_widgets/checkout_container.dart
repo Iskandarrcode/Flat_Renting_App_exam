@@ -41,8 +41,6 @@ class _CheckoutContainerState extends State<CheckoutContainer> {
         });
       },
       child: Container(
-        width: 343.w,
-        height: 160.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
           color: const Color(0xffFFFFFF),
@@ -51,7 +49,7 @@ class _CheckoutContainerState extends State<CheckoutContainer> {
           children: [
             Container(
               width: 122.w,
-              height: 1.sh,
+              height: 230.h,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(16),
@@ -94,7 +92,6 @@ class _CheckoutContainerState extends State<CheckoutContainer> {
                 Gap(8.h),
                 SizedBox(
                   width: 164.w,
-                  height: 63.h,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

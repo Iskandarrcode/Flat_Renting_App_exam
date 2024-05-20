@@ -10,7 +10,6 @@ class HomeContainer4 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 343.w,
-      height: 199.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: const Color(0xff917AFD),
@@ -18,9 +17,8 @@ class HomeContainer4 extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             width: 220.w,
-            height: 199.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
             ),

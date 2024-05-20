@@ -8,7 +8,7 @@ class HomeContainer3 extends StatefulWidget {
   late String image;
   late String text1;
 
-   HomeContainer3({super.key, required this.image, required this.text1});
+  HomeContainer3({super.key, required this.image, required this.text1});
 
   @override
   State<HomeContainer3> createState() => _HomeContainer3State();
@@ -20,7 +20,6 @@ class _HomeContainer3State extends State<HomeContainer3> {
   Widget build(BuildContext context) {
     return Container(
       width: 343.w,
-      height: 300.h,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Colors.white,

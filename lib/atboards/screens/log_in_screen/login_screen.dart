@@ -1,8 +1,9 @@
-import 'package:flut_renting_app/atboards/screens/home_screen/home_screen.dart';
+import 'package:flut_renting_app/atboards/screens/home_screen/home_controller.dart';
 import 'package:flut_renting_app/atboards/screens/onboardings/onboarding1.dart';
 import 'package:flut_renting_app/atboards/screens/sign_up_screen/signup_screen.dart';
 import 'package:flut_renting_app/atboards/widgets/login_widgets/button2.dart';
 import 'package:flut_renting_app/atboards/widgets/login_widgets/text_fields.dart';
+import 'package:flut_renting_app/atboards/widgets/login_widgets/text_filed_pass.dart';
 import 'package:flut_renting_app/atboards/widgets/onboarding_widgets/button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -83,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 iconColor: const Color(0xff6246EA),
               ),
               Gap(18.h),
-              TextFields(
+              TextFiledPass(
                 errorMessage: errorMessagePassword,
                 textEditingController: passwordController,
                 textField: "Insert your password",
@@ -93,20 +94,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Gap(28.h),
               ZoomTapAnimation(
                 onTap: () {
-                  if (!emailController.text.contains("@")) {
-                    setState(() {
-                      errorMessageEmail = "Emailni to'g'ri kiriting!";
-                    });
-                  }
-                  if (passwordController.text.length < 8) {
-                    setState(() {
-                      errorMessagePassword = "Passwordni to'g'ri kiriting!";
-                    });
-                  } else {
-                    errorMessageEmail = "";
-                    errorMessagePassword = "";
-                  }
-
+                  int count = 0;
                   if (emailController.text.isEmpty) {
                     setState(() {
                       errorMessageEmail = "Iltimos Emailni kiriting!";
@@ -117,28 +105,24 @@ class _LoginScreenState extends State<LoginScreen> {
                       errorMessagePassword = "Iltimos Passwordni kiriting!";
                     });
                   }
-
-                  if (emailController.text.contains("@") &&
-                      emailController.text.length > 6 &&
-                      passwordController.text.length > 6) {
-                    if (errorMessageEmail.isEmpty &&
-                        errorMessagePassword.isEmpty) {
-                      for (int i = 0; i < dataBase.length; i++) {
-                        if (dataBase[i]["email"] == emailController.text &&
-                            dataBase[i]["password"] ==
-                                passwordController.text) {
-                          setState(() {
-                            Navigator.push(context, MaterialPageRoute(
-                              builder: (context) {
-                                return const HomeScreen();
-                              },
-                            ));
-                          });
-                        }
-                      }
-                      errorMessagePassword = "Bunday Foydalanuvchi mavjud emas";
-                      setState(() {});
+                  for (int i = 0; i < dataBase.length; i++) {
+                    if (dataBase[i]["email"] == emailController.text &&
+                        dataBase[i]["password"] == passwordController.text) {
+                      count++;
+                      setState(() {
+                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                          builder: (context) {
+                            return const HomeController();
+                          },
+                        ),
+                        (route) => route is HomeController,
+                        );
+                      });
                     }
+                  }
+                  if (count == 0) {
+                    errorMessagePassword = "Bunday foydalanuvchi topilmadi";
+                    setState(() {});
                   }
                 },
                 child: const Button1(

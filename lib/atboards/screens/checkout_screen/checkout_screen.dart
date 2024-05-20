@@ -1,9 +1,8 @@
+import 'package:flut_renting_app/atboards/screens/home_screen/home_screen.dart';
 import 'package:flut_renting_app/atboards/screens/property_details_screen/property_screen.dart';
 import 'package:flut_renting_app/atboards/widgets/checkout_widgets/checkout_container.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
@@ -15,6 +14,105 @@ class CheckoutScreen extends StatefulWidget {
 }
 
 class _CheckoutScreenState extends State<CheckoutScreen> {
+  void showMessage() async {
+    await showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (ctx) {
+          return AlertDialog(
+            title: Column(
+              children: [
+                Container(
+                  width: 100.w,
+                  height: 108.h,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey.shade400),
+                    borderRadius: BorderRadius.circular(60),
+                  ),
+                  child: Icon(
+                    Icons.check,
+                    color: const Color.fromARGB(255, 19, 108, 216),
+                    size: 40.sp,
+                  ),
+                ),
+                const Gap(30),
+                Text(
+                  "Your request has been",
+                  style: TextStyle(
+                    fontSize: 25.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                Center(
+                  child: Text(
+                    "booked",
+                    style: TextStyle(
+                      fontSize: 25.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                const Gap(10),
+                Text(
+                  "Congratulation you are succes to change",
+                  style: TextStyle(
+                    color: Colors.grey.shade500,
+                    fontSize: 14.sp,
+                  ),
+                ),
+                const Gap(10),
+                Center(
+                  child: Text(
+                    "your profile",
+                    style: TextStyle(
+                      color: Colors.grey.shade500,
+                      fontSize: 14.sp,
+                    ),
+                  ),
+                ),
+                const Gap(30),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: ZoomTapAnimation(
+                  onTap: () {
+                    setState(() {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return const HomeScreen();
+                        },
+                      ));
+                    });
+                  },
+                  child: Container(
+                    width: 1.sw,
+                    height: 60.h,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 19, 108, 216),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "OK",
+                        style: TextStyle(
+                          color: Colors.grey.shade300,
+                          fontSize: 18.sp,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          );
+        });
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +153,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               Gap(24.h),
               Container(
                 width: 1.sw,
-                height: 212.h,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
@@ -125,7 +222,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               Gap(24.h),
               Container(
                 width: 1.sw,
-                height: 189.h,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
@@ -226,7 +322,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               Gap(24.h),
               Container(
                 width: 1.sw,
-                height: 269.h,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10),
@@ -463,11 +558,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               ZoomTapAnimation(
                 onTap: () {
                   setState(() {
-                    Navigator.push(context, MaterialPageRoute(
-                      builder: (context) {
-                        return Placeholder();
-                      },
-                    ));
+                    showMessage();
                   });
                 },
                 child: Container(

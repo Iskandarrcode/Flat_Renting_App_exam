@@ -9,9 +9,8 @@ class UserRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 343.w,
-      height: 42.h,
       child: Row(
         children: [
           Container(

@@ -4,15 +4,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 
+// ignore: must_be_immutable
 class HomeContainer2 extends StatelessWidget {
-  const HomeContainer2({super.key});
+  String image1;
+  String text1;
+  String text2;
+  HomeContainer2(
+      {super.key,
+      required this.image1,
+      required this.text1,
+      required this.text2});
 
   @override
   Widget build(BuildContext context) {
     return ZoomTapAnimation(
       child: Container(
-        width: 162.w,
-        height: 235.h,
+        width: 155.w,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: const Color(0xffFFFFFF),
@@ -23,13 +30,13 @@ class HomeContainer2 extends StatelessWidget {
             Container(
               width: 162.w,
               height: 160.h,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(10),
                   topRight: Radius.circular(10),
                 ),
                 image: DecorationImage(
-                  image: AssetImage("assets/images/home_images/1.jpeg"),
+                  image: AssetImage(image1),
                   fit: BoxFit.fill,
                 ),
               ),
@@ -37,21 +44,20 @@ class HomeContainer2 extends StatelessWidget {
             Gap(16.h),
             SizedBox(
               width: 1.sw,
-              height: 55.h,
               child: Padding(
                 padding: const EdgeInsets.only(left: 16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Bali, Indonesia",
+                      text1,
                       style: TextStyle(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Text(
-                      "345 rented props",
+                      text2,
                       style: TextStyle(
                         fontSize: 13.sp,
                         color: const Color(0xff7D7F88),

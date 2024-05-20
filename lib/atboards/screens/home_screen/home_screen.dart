@@ -1,6 +1,5 @@
 import 'package:flut_renting_app/atboards/widgets/home_widgets/container2_home.dart';
 import 'package:flut_renting_app/atboards/widgets/home_widgets/container_home.dart';
-import 'package:flut_renting_app/atboards/widgets/home_widgets/float_action_button.dart';
 import 'package:flut_renting_app/atboards/widgets/home_widgets/home_container3.dart';
 import 'package:flut_renting_app/atboards/widgets/home_widgets/home_container4.dart';
 import 'package:flut_renting_app/atboards/widgets/home_widgets/search_widget.dart';
@@ -23,6 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leadingWidth: 0,
+        leading: const SizedBox(),
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -223,11 +224,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               Gap(20.h),
-              const Row(
+              Row(
                 children: [
-                  HomeContainer2(),
-                  Spacer(),
-                  HomeContainer2(),
+                  HomeContainer2(
+                    text1: "Bali, Indonesia",
+                    image1: "assets/images/explore_images/1.jpeg",
+                    text2: "345 rented props",
+                  ),
+                  const Spacer(),
+                  HomeContainer2(
+                    text1: "Yogyakarta, Ind...",
+                    text2: "290 rented props",
+                    image1: "assets/images/explore_images/2.jpeg",
+                  ),
                 ],
               ),
               Gap(36.h),
@@ -278,8 +287,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: ActionButton(page: 1),
     );
   }
 }

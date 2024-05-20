@@ -130,6 +130,7 @@ class _PropertyScreenState extends State<PropertyScreen> {
             Padding(
               padding: const EdgeInsets.all(16),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "Entire Bromo mountain\nview Cabin in Surabaya",
@@ -138,7 +139,6 @@ class _PropertyScreenState extends State<PropertyScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Gap(120.w),
                   ZoomTapAnimation(
                     onTap: () {
                       favorid = !favorid;
@@ -164,11 +164,11 @@ class _PropertyScreenState extends State<PropertyScreen> {
             ),
             SizedBox(
               width: 343.w,
-              height: 55.h,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Icon(
                         Icons.star_purple500_outlined,
@@ -206,6 +206,7 @@ class _PropertyScreenState extends State<PropertyScreen> {
                   ),
                   Gap(10.h),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Icon(
                         Icons.room,
@@ -330,13 +331,13 @@ class _PropertyScreenState extends State<PropertyScreen> {
                   ),
                   Gap(24.h),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Locations(
                         icon: "assets/icons/property_icons/14.svg",
                         text1: "Minimarket",
                         text2: "200m",
                       ),
-                      Gap(64.w),
                       Locations(
                         icon: "assets/icons/property_icons/15.svg",
                         text1: "Hospital",
@@ -346,13 +347,13 @@ class _PropertyScreenState extends State<PropertyScreen> {
                   ),
                   Gap(48.h),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Locations(
                         icon: "assets/icons/property_icons/16.svg",
                         text1: "Public canteen",
                         text2: "400m",
                       ),
-                      Gap(38.w),
                       Locations(
                         icon: "assets/icons/property_icons/17.svg",
                         text1: "Train satation",
@@ -363,7 +364,6 @@ class _PropertyScreenState extends State<PropertyScreen> {
                   Gap(40.h),
                   SizedBox(
                     width: 1.sw,
-                    height: 278.h,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -394,7 +394,6 @@ This apartment equipped with Washing Machine, Electric Stove, Microwave, Refrige
                   ZoomTapAnimation(
                     child: Container(
                       width: 343.w,
-                      height: 48.h,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(54),
                         border: Border.all(
@@ -505,7 +504,6 @@ This apartment equipped with Washing Machine, Electric Stove, Microwave, Refrige
                   ),
                   SizedBox(
                     width: 1.sw,
-                    height: 220.h,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -570,7 +568,9 @@ This apartment equipped with Washing Machine, Electric Stove, Microwave, Refrige
                       ],
                     ),
                   ),
+                  Gap(40.h),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -601,7 +601,6 @@ This apartment equipped with Washing Machine, Electric Stove, Microwave, Refrige
                           ),
                         ],
                       ),
-                      Gap(68.w),
                       ZoomTapAnimation(
                         onTap: () {
                           setState(() {
@@ -613,8 +612,8 @@ This apartment equipped with Washing Machine, Electric Stove, Microwave, Refrige
                           });
                         },
                         child: Container(
+                          padding: const EdgeInsets.all(10),
                           width: 156.w,
-                          height: 48.h,
                           decoration: BoxDecoration(
                             color: const Color(0xff917AFD),
                             borderRadius: BorderRadius.circular(72),
@@ -631,7 +630,7 @@ This apartment equipped with Washing Machine, Electric Stove, Microwave, Refrige
                         ),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

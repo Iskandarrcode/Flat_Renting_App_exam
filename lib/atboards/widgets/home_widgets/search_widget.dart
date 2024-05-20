@@ -28,7 +28,6 @@ class SearchWidget extends StatelessWidget {
         prefixIcon: Container(
           padding: const EdgeInsets.all(13),
           width: 22.w,
-          height: 22.h,
           child: SvgPicture.asset(iconField),
         ),
         suffixIcon: iconBack
@@ -46,9 +45,12 @@ class SearchWidget extends StatelessWidget {
             : const Text(""),
         label: Row(
           children: [
-            Text(
-              textField,
-              style: TextStyle(fontSize: 14.sp),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Text(
+                textField,
+                style: TextStyle(fontSize: 14.sp),
+              ),
             ),
           ],
         ),

@@ -25,24 +25,25 @@ class _Button2State extends State<Button2> {
   Widget build(BuildContext context) {
     return ZoomTapAnimation(
       child: Container(
+        padding: const EdgeInsets.all(5),
         width: 343.w,
-        height: 50.h,
         decoration: BoxDecoration(
           border: Border.all(color: const Color(0xffE2E8F0)),
           borderRadius: BorderRadius.circular(103),
           color: widget.buttonColor,
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.all(10),
+              padding: const EdgeInsets.all(5),
               child: SizedBox(
                 width: 24.w,
                 height: 24.h,
                 child: SvgPicture.asset(widget.iconButton),
               ),
             ),
-            Gap(63.w),
+            Gap(80.w),
             Text(
               widget.text,
               style: TextStyle(fontSize: 16.sp, color: widget.textColor),

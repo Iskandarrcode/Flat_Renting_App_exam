@@ -7,7 +7,10 @@ class Button1 extends StatefulWidget {
   final Color colorText;
 
   const Button1(
-      {super.key, required this.textButton, required this.colorButton, required this.colorText});
+      {super.key,
+      required this.textButton,
+      required this.colorButton,
+      required this.colorText});
 
   @override
   State<Button1> createState() => _Button1State();
@@ -18,7 +21,6 @@ class _Button1State extends State<Button1> {
   Widget build(BuildContext context) {
     return Container(
       width: 343.w,
-      height: 50.h,
       decoration: BoxDecoration(
         color: widget.colorButton,
         borderRadius: BorderRadius.circular(30.r),
@@ -27,11 +29,14 @@ class _Button1State extends State<Button1> {
         ),
       ),
       child: Center(
-        child: Text(
-          widget.textButton,
-          style: TextStyle(
-            color: widget.colorText,
-            fontSize: 16.sp,
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Text(
+            widget.textButton,
+            style: TextStyle(
+              color: widget.colorText,
+              fontSize: 16.sp,
+            ),
           ),
         ),
       ),

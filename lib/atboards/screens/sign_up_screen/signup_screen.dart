@@ -2,6 +2,7 @@ import 'package:flut_renting_app/atboards/screens/log_in_screen/login_screen.dar
 import 'package:flut_renting_app/atboards/screens/onboardings/onboarding1.dart';
 import 'package:flut_renting_app/atboards/widgets/login_widgets/button2.dart';
 import 'package:flut_renting_app/atboards/widgets/login_widgets/text_fields.dart';
+import 'package:flut_renting_app/atboards/widgets/login_widgets/text_filed_pass.dart';
 import 'package:flut_renting_app/atboards/widgets/onboarding_widgets/button_widget.dart';
 import 'package:flut_renting_app/atboards/widgets/signup_screen_widgets/phone_number.dart';
 import 'package:flutter/material.dart';
@@ -32,9 +33,100 @@ class _SignupScreenState extends State<SignupScreen> {
 
   get iconButton => null;
 
+  void showMessage() async {
+    await showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (ctx) {
+          return AlertDialog(
+            title: Column(
+              children: [
+                Container(
+                  width: 100.w,
+                  height: 108.h,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey.shade400),
+                    borderRadius: BorderRadius.circular(60),
+                  ),
+                  child: Icon(
+                    Icons.check,
+                    color: const Color.fromARGB(255, 19, 108, 216),
+                    size: 40.sp,
+                  ),
+                ),
+                const Gap(30),
+                Text(
+                  "Your account has active",
+                  style: TextStyle(
+                    fontSize: 25.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Gap(10),
+                Text(
+                  "Congratulation you are succes to change",
+                  style: TextStyle(
+                    color: Colors.grey.shade500,
+                    fontSize: 14.sp,
+                  ),
+                ),
+                const Gap(10),
+                Center(
+                  child: Text(
+                    "your profile",
+                    style: TextStyle(
+                      color: Colors.grey.shade500,
+                      fontSize: 14.sp,
+                    ),
+                  ),
+                ),
+                const Gap(30),
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: ZoomTapAnimation(
+                  onTap: () {
+                    setState(() {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return const LoginScreen();
+                        },
+                      ));
+                    });
+                  },
+                  child: Container(
+                    width: 1.sw,
+                    height: 60.h,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 19, 108, 216),
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "OK",
+                        style: TextStyle(
+                          color: Colors.grey.shade300,
+                          fontSize: 18.sp,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          );
+        });
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: ZoomTapAnimation(
           onTap: () {
@@ -88,7 +180,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 iconColor: const Color(0xff6246EA),
               ),
               Gap(18.h),
-              TextFields(
+              TextFiledPass(
                 errorMessage: errorMessagePassword,
                 textEditingController: passwordController,
                 textField: "Insert your password",
@@ -116,39 +208,37 @@ class _SignupScreenState extends State<SignupScreen> {
                       errorMessagePassword = "Iltimos Passwordni kiriting!";
                     });
                   }
-
-                  if (emailController.text.contains("@") &&
-                      emailController.text.length > 10 &&
-                      passwordController.text.length > 8) {
-                    if (errorMessageEmail.isEmpty &&
-                        errorMessagePassword.isEmpty) {
+                  if (!emailController.text.contains("@")) {
+                    setState(() {
+                      errorMessageEmail = "Email noto'g'ri kiritildi";
+                    });
+                  }
+                  if (emailController.text.length < 10) {
+                    setState(() {
+                      errorMessageEmail = "Email 10 ta belgidan kam bo'lmasin";
+                      errorMessagePassword = "";
+                    });
+                  }
+                  if (passwordController.text.length < 5) {
+                    setState(() {
+                      errorMessagePassword =
+                          "Password 5 ta belgidan kam bo'lmasin";
+                      errorMessageEmail = "";
+                    });
+                  }
+                  if (emailController.text.isNotEmpty &&
+                      passwordController.text.isNotEmpty) {
+                    if (emailController.text.contains("@") &&
+                        emailController.text.length >= 10 &&
+                        passwordController.text.length >= 5) {
                       dataBase.add({
                         "email": emailController.text,
                         "password": passwordController.text
                       });
                       setState(() {
-                        Navigator.push(context, MaterialPageRoute(
-                          builder: (context) {
-                            return const LoginScreen();
-                          },
-                        ));
+                        showMessage();
                       });
                     }
-                  }
-
-                  if (!emailController.text.contains("@")) {
-                    setState(() {
-                      errorMessageEmail = "Emailni to'g'ri kiriting!";
-                    });
-                  }
-                  if (passwordController.text.length < 8) {
-                    setState(() {
-                      errorMessagePassword =
-                          "Paro'l 8 ta belgidan ko'p bo'lishi shart";
-                    });
-                  } else {
-                    errorMessageEmail = "";
-                    errorMessagePassword = "";
                   }
                 },
                 child: const Button1(

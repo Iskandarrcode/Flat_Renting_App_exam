@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
@@ -41,9 +42,11 @@ class PhoneNumber extends StatelessWidget {
           children: [
             SvgPicture.asset("assets/icons/login_icons/4.svg"),
             Gap(2.w),
-            Text(
-              textField,
-              style: TextStyle(fontSize: 14.sp),
+            Expanded(
+              child: Text(
+                textField,
+                style: TextStyle(fontSize: 14.sp),
+              ),
             ),
           ],
         ),

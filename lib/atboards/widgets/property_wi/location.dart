@@ -3,11 +3,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
+// ignore: must_be_immutable
 class Locations extends StatelessWidget {
   String icon;
   String text1;
   String text2;
- Locations({super.key, required this.icon, required this.text1, required this.text2});
+  Locations(
+      {super.key,
+      required this.icon,
+      required this.text1,
+      required this.text2});
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,5 @@
 import 'package:flut_renting_app/atboards/screens/property_details_screen/property_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
@@ -47,7 +45,6 @@ class _HomeContainerState extends State<HomeContainer> {
       },
       child: Container(
         width: 316.w,
-        height: 189.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
           color: const Color(0xffFFFFFF),
@@ -56,7 +53,7 @@ class _HomeContainerState extends State<HomeContainer> {
           children: [
             Container(
               width: 108.w,
-              height: 1.sh,
+              height: 200.h,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(16),
@@ -98,7 +95,6 @@ class _HomeContainerState extends State<HomeContainer> {
                 Gap(8.h),
                 SizedBox(
                   width: 164.w,
-                  height: 63.h,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

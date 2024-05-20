@@ -20,6 +20,7 @@ class TextFields extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: textEditingController,
+      // obscureText: true,
       keyboardType: TextInputType.text,
       decoration: InputDecoration(
         border: OutlineInputBorder(
