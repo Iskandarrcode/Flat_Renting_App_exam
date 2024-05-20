@@ -1,4 +1,4 @@
-import 'package:flut_renting_app/atboards/screens/home_screen/home_screen.dart';
+import 'package:flut_renting_app/atboards/screens/home_screen/home_controller.dart';
 import 'package:flut_renting_app/atboards/screens/property_details_screen/property_screen.dart';
 import 'package:flut_renting_app/atboards/widgets/checkout_widgets/checkout_container.dart';
 import 'package:flutter/material.dart';
@@ -81,11 +81,15 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 child: ZoomTapAnimation(
                   onTap: () {
                     setState(() {
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (context) {
-                          return const HomeScreen();
-                        },
-                      ));
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const HomeController();
+                          },
+                        ),
+                        (route) => route is HomeController,
+                      );
                     });
                   },
                   child: Container(

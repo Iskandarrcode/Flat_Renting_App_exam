@@ -6,10 +6,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   runApp(
-    DevicePreview(
-      enabled: kReleaseMode,
-      builder: (context) => MyApp(), // Wrap your app
-    ),
+    // DevicePreview(
+    //   enabled: kReleaseMode,
+    //   builder: (context) => const MyApp(), // Wrap your app
+    // ),
+    const MyApp(),
   );
 }
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       builder: (context, child) {
         return const MaterialApp(
-          builder: DevicePreview.appBuilder,
+          // builder: DevicePreview.appBuilder,
           debugShowCheckedModeBanner: false,
           home: Onboarding1Screen(),
         );

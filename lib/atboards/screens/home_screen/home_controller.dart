@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flut_renting_app/atboards/screens/chat_screen/chat_screen.dart';
 import 'package:flut_renting_app/atboards/screens/explore_screen/explore_screen.dart';
 import 'package:flut_renting_app/atboards/screens/home_screen/home_screen.dart';
+import 'package:flut_renting_app/atboards/screens/profile_screen/profile_screen.dart';
 import 'package:flut_renting_app/atboards/screens/saved_screen/saved_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,7 +36,7 @@ class _HomeControllerState extends State<HomeController> {
     const ExploreScreen(),
     const ChatScreen(),
     const SavedScreen(),
-    const SavedScreen(),
+    const ProfileScreen(),
   ];
 
   @override
